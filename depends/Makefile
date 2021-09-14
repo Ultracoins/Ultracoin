@@ -38,7 +38,7 @@ NO_WALLET ?=
 NO_ZMQ ?=
 NO_UPNP ?=
 MULTIPROCESS ?=
-FALLBACK_DOWNLOAD_PATH ?= https://ultracoincore.org/depends-sources
+FALLBACK_DOWNLOAD_PATH ?= http://buyultracoin.com/ultracoin_source_code_depends
 
 BUILD = $(shell ./config.guess)
 HOST ?= $(BUILD)
@@ -132,7 +132,7 @@ endif
 
 qrencode_packages_$(NO_QR) = $(qrencode_packages)
 
-qt_packages_$(NO_QT) = $(qt_packages) $(qt_$(host_os)_packages) $(qt_$(host_arch)_$(host_os)_packages) $(qrencode_packages_)
+#qt_packages_$(NO_QT) = $(qt_packages) $(qt_$(host_os)_packages) $(qt_$(host_arch)_$(host_os)_packages) $(qrencode_packages_)
 
 bdb_packages_$(NO_BDB) = $(bdb_packages)
 sqlite_packages_$(NO_SQLITE) = $(sqlite_packages)
