@@ -3,9 +3,11 @@
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 # These environment variables are set by the build process and read by
-# test/functional/test_runner.py and test/util/bitcoin-util-test.py
+# test/functional/test_runner.py and test/util/ultracoin-util-test.py
 
 [environment]
+PACKAGE_NAME=@PACKAGE_NAME@
+PACKAGE_BUGREPORT=@PACKAGE_BUGREPORT@
 SRCDIR=@abs_top_srcdir@
 BUILDDIR=@abs_top_builddir@
 EXEEXT=@EXEEXT@
@@ -14,7 +16,9 @@ RPCAUTH=@abs_top_srcdir@/share/rpcauth/rpcauth.py
 [components]
 # Which components are enabled. These are commented out by `configure` if they were disabled when running config.
 @ENABLE_WALLET_TRUE@ENABLE_WALLET=true
-@BUILD_BITCOIN_CLI_TRUE@ENABLE_CLI=true
-@BUILD_BITCOIND_TRUE@ENABLE_BITCOIND=true
+@USE_SQLITE_TRUE@USE_SQLITE=true
+@BUILD_ULTRACOIN_CLI_TRUE@ENABLE_CLI=true
+@BUILD_ULTRACOIN_WALLET_TRUE@ENABLE_WALLET_TOOL=true
+@BUILD_ULTRACOIND_TRUE@ENABLE_ULTRACOIND=true
 @ENABLE_FUZZ_TRUE@ENABLE_FUZZ=true
 @ENABLE_ZMQ_TRUE@ENABLE_ZMQ=true

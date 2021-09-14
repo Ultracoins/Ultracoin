@@ -2,7 +2,7 @@
 
 Since Ultracoin Core 0.17, an RPC interface exists for Partially Signed Ultracoin
 Transactions (PSBTs, as specified in
-[BIP 174](https://github.com/bitcoin/bips/blob/master/bip-0174.mediawiki)).
+[BIP 174](https://github.com/ultracoin/bips/blob/master/bip-0174.mediawiki)).
 
 This document describes the overall workflow for producing signed transactions
 through the use of PSBT, and the specific RPC commands used in typical
@@ -14,7 +14,7 @@ PSBT is an interchange format for Ultracoin transactions that are not fully sign
 yet, together with relevant metadata to help entities work towards signing it.
 It is intended to simplify workflows where multiple parties need to cooperate to
 produce a transaction. Examples include hardware wallets, multisig setups, and
-[CoinJoin](https://bitcointalk.org/?topic=279249) transactions.
+[CoinJoin](https://ultracointalk.org/?topic=279249) transactions.
 
 ### Overall workflow
 
@@ -82,9 +82,10 @@ hardware implementations will typically implement multiple roles simultaneously.
   transactions.
 - **`decodepsbt`** is a diagnostic utility RPC which will show all information in
   a PSBT in human-readable form, as well as compute its eventual fee if known.
-- **`analyzepsbt`** is a utility RPC that examines an RPC and reports the
-  next steps in the workflow if known, computes the fee of the resulting
-  transaction, and estimates the weight and feerate if possible.
+- **`analyzepsbt`** is a utility RPC that examines a PSBT and reports the
+  current status of its inputs, the next step in the workflow if known, and if
+  possible, computes the fee of the resulting transaction and estimates the
+  final weight and feerate.
 
 
 ### Workflows
@@ -117,7 +118,7 @@ Setup:
   initiate transactions later, however.
 - They can now give out *Amulti* as address others can pay to.
 
-Later, when *V* BTC has been received on *Amulti*, and Bob and Carol want to
+Later, when *V* UC has been received on *Amulti*, and Bob and Carol want to
 move the coins in their entirety to address *Asend*, with no change. Alice
 does not need to be involved.
 - One of them - let's assume Carol here - initiates the creation. She runs

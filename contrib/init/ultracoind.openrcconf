@@ -1,0 +1,33 @@
+# /etc/conf.d/ultracoind: config file for /etc/init.d/ultracoind
+
+# Config file location
+#ULTRACOIND_CONFIGFILE="/etc/ultracoin/ultracoin.conf"
+
+# What directory to write pidfile to?  (created and owned by $ULTRACOIND_USER)
+#ULTRACOIND_PIDDIR="/var/run/ultracoind"
+
+# What filename to give the pidfile
+#ULTRACOIND_PIDFILE="${ULTRACOIND_PIDDIR}/ultracoind.pid"
+
+# Where to write ultracoind data (be mindful that the blockchain is large)
+#ULTRACOIND_DATADIR="/var/lib/ultracoind"
+
+# User and group to own ultracoind process
+#ULTRACOIND_USER="ultracoin"
+#ULTRACOIND_GROUP="ultracoin"
+
+# Path to ultracoind executable
+#ULTRACOIND_BIN="/usr/bin/ultracoind"
+
+# Nice value to run ultracoind under
+#ULTRACOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+#ULTRACOIND_OPTS=""
+
+# The timeout in seconds OpenRC will wait for ultracoind to terminate
+# after a SIGTERM has been raised.
+# Note that this will be mapped as argument to start-stop-daemon's
+# '--retry' option, which means you can specify a retry schedule
+# here. For more information see man 8 start-stop-daemon.
+ULTRACOIND_SIGTERM_TIMEOUT=600

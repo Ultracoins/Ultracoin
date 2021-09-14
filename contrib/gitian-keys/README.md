@@ -19,17 +19,9 @@ gpg --refresh-keys
 To fetch keys of Gitian builders and active developers, feed the list of
 fingerprints of the primary keys into gpg:
 
-## Ultracoin
-
 ```sh
-while read fingerprint keyholder_name; do gpg --keyserver hkp://subset.pool.sks-keyservers.net --recv-keys ${fingerprint}; done < ./keys-ultracoin.txt
+while read fingerprint keyholder_name; do gpg --keyserver hkp://subset.pool.sks-keyservers.net --recv-keys ${fingerprint}; done < ./keys.txt
 ```
 
 Add your key to the list if you provided Gitian signatures for two major or
 minor releases of Ultracoin Core.
-
-## Bitcoin
-
-```sh
-while read fingerprint keyholder_name; do gpg --keyserver hkp://subset.pool.sks-keyservers.net --recv-keys ${fingerprint}; done < ./keys.txt
-```

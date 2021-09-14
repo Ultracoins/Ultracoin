@@ -30,8 +30,33 @@ Network specific options can be:
 - placed into sections with headers `[main]` (not `[mainnet]`), `[test]` (not `[testnet]`) or `[regtest]`;
 - prefixed with a chain name; e.g., `regtest.maxmempool=100`.
 
+Network specific options take precedence over non-network specific options.
+If multiple values for the same option are found with the same precedence, the
+first one is generally chosen.
+
+This means that given the following configuration, `regtest.rpcport` is set to `3000`:
+
+```
+regtest=1
+rpcport=2000
+regtest.rpcport=3000
+
+[regtest]
+rpcport=4000
+```
+
 ## Configuration File Path
 
 The configuration file is not automatically created; you can create it using your favorite text editor. By default, the configuration file name is `ultracoin.conf` and it is located in the Ultracoin data directory, but both the Ultracoin data directory and the configuration file path may be changed using the `-datadir` and `-conf` command-line options.
 
 The `includeconf=<file>` option in the `ultracoin.conf` file can be used to include additional configuration files.
+
+### Default configuration file locations
+
+Operating System | Data Directory | Example Path
+-- | -- | --
+Windows | `%APPDATA%\Ultracoin\` | `C:\Users\username\AppData\Roaming\Ultracoin\ultracoin.conf`
+Linux | `$HOME/.ultracoin/` | `/home/username/.ultracoin/ultracoin.conf`
+macOS | `$HOME/Library/Application Support/Ultracoin/` | `/Users/username/Library/Application Support/Ultracoin/ultracoin.conf`
+
+You can find an example ultracoin.conf file in [share/examples/ultracoin.conf](../share/examples/ultracoin.conf).

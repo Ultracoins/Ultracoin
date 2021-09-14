@@ -2,8 +2,8 @@
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_QT_QVALIDATEDLINEEDIT_H
-#define BITCOIN_QT_QVALIDATEDLINEEDIT_H
+#ifndef ULTRACOIN_QT_QVALIDATEDLINEEDIT_H
+#define ULTRACOIN_QT_QVALIDATEDLINEEDIT_H
 
 #include <QLineEdit>
 
@@ -21,8 +21,8 @@ public:
     bool isValid();
 
 protected:
-    void focusInEvent(QFocusEvent *evt);
-    void focusOutEvent(QFocusEvent *evt);
+    void focusInEvent(QFocusEvent *evt) override;
+    void focusOutEvent(QFocusEvent *evt) override;
 
 private:
     bool valid;
@@ -40,4 +40,4 @@ private Q_SLOTS:
     void checkValidity();
 };
 
-#endif // BITCOIN_QT_QVALIDATEDLINEEDIT_H
+#endif // ULTRACOIN_QT_QVALIDATEDLINEEDIT_H

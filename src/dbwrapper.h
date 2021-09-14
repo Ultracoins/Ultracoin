@@ -1,9 +1,9 @@
-// Copyright (c) 2012-2018 The Bitcoin Core developers
+// Copyright (c) 2012-2019 The Bitcoin Core developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#ifndef BITCOIN_DBWRAPPER_H
-#define BITCOIN_DBWRAPPER_H
+#ifndef ULTRACOIN_DBWRAPPER_H
+#define ULTRACOIN_DBWRAPPER_H
 
 #include <clientversion.h>
 #include <fs.h>
@@ -11,7 +11,6 @@
 #include <streams.h>
 #include <util/system.h>
 #include <util/strencodings.h>
-#include <version.h>
 
 #include <leveldb/db.h>
 #include <leveldb/write_batch.h>
@@ -293,18 +292,6 @@ public:
     // Get an estimate of LevelDB memory usage (in bytes).
     size_t DynamicMemoryUsage() const;
 
-    // not available for LevelDB; provide for compatibility with BDB
-    bool Flush()
-    {
-        return true;
-    }
-
-    bool Sync()
-    {
-        CDBBatch batch(*this);
-        return WriteBatch(batch, true);
-    }
-
     CDBIterator *NewIterator()
     {
         return new CDBIterator(*this, pdb->NewIterator(iteroptions));
@@ -349,4 +336,4 @@ public:
 
 };
 
-#endif // BITCOIN_DBWRAPPER_H
+#endif // ULTRACOIN_DBWRAPPER_H

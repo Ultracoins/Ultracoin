@@ -1,13 +1,17 @@
 *.tar.gz
 
 *.exe
+*.pdb
 src/ultracoin
 src/ultracoind
 src/ultracoin-cli
+src/ultracoin-gui
+src/ultracoin-node
 src/ultracoin-tx
 src/ultracoin-wallet
+src/test/fuzz/*
+!src/test/fuzz/*.*
 src/test/test_ultracoin
-src/test/test_ultracoin_fuzzy
 src/qt/test/test_ultracoin-qt
 
 # autoreconf
@@ -27,13 +31,15 @@ build-aux/m4/ltversion.m4
 build-aux/missing
 build-aux/compile
 build-aux/test-driver
+config.cache
 config.log
 config.status
 configure
 libtool
-src/config/bitcoin-config.h
-src/config/bitcoin-config.h.in
+src/config/ultracoin-config.h
+src/config/ultracoin-config.h.in
 src/config/stamp-h1
+src/obj
 share/setup.nsi
 share/qt/Info.plist
 
@@ -45,16 +51,15 @@ src/qt/forms/ui_*.h
 
 src/qt/test/moc*.cpp
 
-src/qt/bitcoin-qt.config
-src/qt/bitcoin-qt.creator
-src/qt/bitcoin-qt.creator.user
-src/qt/bitcoin-qt.files
-src/qt/bitcoin-qt.includes
+src/qt/ultracoin-qt.config
+src/qt/ultracoin-qt.creator
+src/qt/ultracoin-qt.creator.user
+src/qt/ultracoin-qt.files
+src/qt/ultracoin-qt.includes
 
 .deps
 .dirstamp
 .libs
-.vscode
 .*.swp
 *.*~*
 *.bak
@@ -63,7 +68,6 @@ src/qt/bitcoin-qt.includes
 *.pyc
 *.o
 *.o-*
-*.patch
 *.a
 *.pb.cc
 *.pb.h
@@ -76,6 +80,10 @@ src/qt/bitcoin-qt.includes
 *.json.h
 *.raw.h
 
+# Only ignore unexpected patches
+*.patch
+!depends/patches/**/*.patch
+
 #libtool object files
 *.lo
 *.la
@@ -83,9 +91,13 @@ src/qt/bitcoin-qt.includes
 # Compilation and Qt preprocessor part
 *.qm
 Makefile
-ultracoin-qt
-ultracoin-Qt.app
+!depends/Makefile
+src/qt/ultracoin-qt
+Ultracoin-Qt.app
 background.tiff*
+
+# Qt Creator
+Makefile.am.user
 
 # Unit-tests
 Makefile.test
@@ -93,9 +105,13 @@ ultracoin-qt_test
 
 # Resources cpp
 qrc_*.cpp
+
 # Mac specific
 .DS_Store
 build
+
+# Previous releases
+releases
 
 #lcov
 *.gcno
@@ -103,7 +119,10 @@ build
 /*.info
 test_ultracoin.coverage/
 total.coverage/
+fuzz.coverage/
 coverage_percent.txt
+/cov_tool_wrapper.sh
+qa-assets/
 
 #build tests
 linux-coverage-build
@@ -111,12 +130,13 @@ linux-build
 win32-build
 test/config.ini
 test/cache/*
+test/.mypy_cache/
 
 !src/leveldb*/Makefile
 
 /doc/doxygen/
 
-libbitcoinconsensus.pc
+libultracoinconsensus.pc
 contrib/devtools/split-debug.sh
 
 # Output from running db4 installation
@@ -124,3 +144,7 @@ db4/
 
 # clang-check
 *.plist
+
+osx_volname
+dist/
+*.background.tiff
