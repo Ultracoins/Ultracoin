@@ -50,14 +50,19 @@ sudo update-alternatives --set x86_64-w64-mingw32-g++ /usr/bin/x86_64-w64-mingw3
 Build x86_64-w64-mingw32 with the following commands:
 
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
+
 cd depends
+
 make HOST=x86_64-w64-mingw32
+
 cd ..
 
 Type the following commands to compile your 64 bit wallet for Linux.
 
 ./autogen.sh
+
 CONFIG_SITE=$PWD/depends/x86_64-w64-mingw32/share/config.site ./configure --prefix=/
+
 make
 
 
@@ -74,19 +79,25 @@ sudo apt-get install g++-mingw-w64-i686 mingw-w64-i686-dev -y
 Set the default i686-w64-mingw32-gcc and i686-w64-mingw32-g++ compiler option to posix with the following commands.
 
 sudo update-alternatives --set i686-w64-mingw32-gcc /usr/bin/i686-w64-mingw32-gcc-posix
+
 sudo update-alternatives --set i686-w64-mingw32-g++ /usr/bin/i686-w64-mingw32-g++-posix
 
 Build i686-w64-mingw32 with the following commands:
 
 PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g')
+
 cd depends
+
 make HOST=i686-w64-mingw32
+
 cd ..
 
 Type the following commands to compile your 32 bit wallet for Linux.
 
 ./autogen.sh
+
 CONFIG_SITE=$PWD/depends/i686-w64-mingw32/share/config.site ./configure --prefix=/
+
 make
 
 The compiled wallet for Linux is located in the directory src/qt, the tools are located in the directory src.
