@@ -6,6 +6,7 @@ The official Ultracoin website
 https://buyultracoin.com
 
 RPC port 	42563
+
 P2P port 	42564
 
 Ultracoin abbreviation update reverted to UC for source code version reason of coin.
