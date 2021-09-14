@@ -9,5 +9,9 @@ RPC port 	42563
 
 P2P port 	42564
 
+Block reward 	50 coins
+
+Coin supply 	21000000 coins
+
 Ultracoin abbreviation update reverted to UC for source code version reason of coin.
 
